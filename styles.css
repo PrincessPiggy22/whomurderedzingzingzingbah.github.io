@@ -5,18 +5,20 @@ body{
 
 /* Container needed to position the button. Adjust the width as needed */
 .titlescreen {
-  position: relative;
-  width: 50%;
+   position:relative;
+  width:800px;
+  height:600px;
+  margin:auto;
 }
 
 /* Make the image responsive */
-.titlescreen img {
+#titleBg {
   width: 100%;
   height: auto;
 }
 
 /* Style the button and place it in the middle of the container/image */
-.container .btn {
+.container .start {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -31,6 +33,6 @@ body{
   border-radius: 5px;
 }
 
-.container .btn:hover {
+.container .start:hover {
   background-color: black;
 }
