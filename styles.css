@@ -18,7 +18,7 @@ body{
 }
 
 /* Style the button and place it in the middle of the container/image */
-.container .start {
+.container #start {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -33,6 +33,6 @@ body{
   border-radius: 5px;
 }
 
-.container .start:hover {
+.container #start:hover {
   background-color: black;
 }
