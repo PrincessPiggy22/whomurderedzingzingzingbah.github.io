@@ -1,0 +1,13 @@
+*** CREDITS ***
+
+These images were created in Blender and Clip Studio Paint, mostly using models from Sketchfab and Blenderkit. For a full list of credits and acknowledgements, see https://spiralatlas.github.io/credits/
+
+** IMAGES ***
+
+Internal rooms: entrance, dining room, kitchen, kitchen + dining,  lounge, bathroom, master bedroom, single bedroom, hallway
+
+External house variants: Outside1 and Outside2 
+
+Note: Outside1 and Outside2 do not currently have lines. 
+
+Here's a tutorial on how I created these backgrounds (day variant), scroll down to 'Post Processing' : https://spiralatlas.github.io/tutorial:-making-a-toon-shaded-background/
