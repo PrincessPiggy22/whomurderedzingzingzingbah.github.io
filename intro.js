@@ -1,6 +1,6 @@
 document.getElementById("wakeUpButton").onclick = function() {
 
-  window.location.href = "PlayerRoom.html";
+  window.location.href = "rooms/PlayerRoom.html";
 
 };
 
