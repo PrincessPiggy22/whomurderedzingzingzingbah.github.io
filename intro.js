@@ -17,5 +17,9 @@ document.addEventListener("click", function() {
 
     document.getElementById("dreamText").textContent = dreamTxt[dreamIndex];
     
+  } else if(dreamIndex === dreamTxt.length) {
+    
+    document.getElementById("wakeUpButton").classList.add("show");
+    
   }
 });

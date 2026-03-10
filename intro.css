@@ -39,6 +39,16 @@ html, body {
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  opacity: 0;
+}
+
+#wakeUpButton.show {
+  animation: fadeInButton 2s ease-in-out forwards;
+}
+
+@keyframes fadeInButton {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }
 
 #wakeUpButton:hover {
