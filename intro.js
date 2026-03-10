@@ -8,6 +8,7 @@ document.getElementById("wakeUpButton").onclick = function() {
 const dreamTxt = ["You won a lottery allowing you to board the fabled Boohbah express before it opens to the public", "You're first day here was exciting and tired you out", "But you won't remain asleep  for long.."]
 
 let dreamIndex = 0;
+document.getElementById("dreamText").textContent = dreamTxt[0];
 
 document.addEventListener("click", function() {
 
