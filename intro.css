@@ -9,10 +9,11 @@ html, body {
 #dreamText {
   color: #fcf7f7;
   font-size: 5vw;
+  font-family: monospace;
   opacity: 1;
   margin: 0;
   padding: 0;
-  /*animation: fadeText 4s ease-in-out; */
+  animation: fadeText 4s ease-in-out; 
 }
 
 @keyframes fadeText {
