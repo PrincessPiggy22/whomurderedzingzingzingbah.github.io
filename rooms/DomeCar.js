@@ -18,7 +18,8 @@ function goThruDialouge(id, array, characters) {
     
   }
   if(index == array.length){
-    done++;
+    await.sleep(2000)
+    window.location.href = "WhatAnUndertale.html";
   }
 });
 };
@@ -41,9 +42,6 @@ Lorax = "../sprites/Lorax.png";
 // Begning convo
 const character1 =[You,Bling,You,Bling,You,Bling,You,You,Lorax];
 const dialouge1 = ["&quot;What happened?&quot;","&quot;Zing Zing Zingbah's dead&quot;","&quot;Who are you?&quot;","&quot;Blingbah, I run the casino&quot;","&quot;Gambling?&quot;","&quot;No&quot;","&quot;Anyway...&quot;","&quot;Who could've-&quot;","&quot;I am the Lorax, I speak for the trees, I killed the Zingbah, It was MEEEEEEE!!!&quot;"];
-
-const character2 =[You];
-const dialouge2 = ["Skibbbb"];
 
 console.log("There is an imposter among us");
 goThruDialouge("roomText", dialouge1, character1);
