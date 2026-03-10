@@ -54,3 +54,9 @@
   border: none;
   cursor: pointer;
 }
+
+#phaseText {
+  font-size: 24px;
+  color: white;
+  margin-bottom: 10px;
+}

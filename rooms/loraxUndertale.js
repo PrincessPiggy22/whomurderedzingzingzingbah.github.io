@@ -42,14 +42,36 @@ let keys = {};
 let attackTimer = 0;
 let attackInterval = 100; // frames between attacks
 
+let currentPhase = 'safe';
+let phaseTimer = 0;
+const phaseDuration = 300; // frames, about 5 seconds at 60fps
+const phases = ['safe', 'truffle', 'bearThing', 'axe'];
+
+const phaseText = document.getElementById('phaseText');
+
 function initGame() {
     updateHealthBars();
+    updatePhaseText();
     gameLoop();
 }
 
-function updateHealthBars() {
-    playerHealthBar.style.width = `${(player.health / 100) * 100}%`;
-    bossHealthBar.style.width = `${(boss.health / 200) * 100}%`;
+function updatePhaseText() {
+    let text;
+    switch (currentPhase) {
+        case 'safe':
+            text = 'Safe Phase - Attack the Boss!';
+            break;
+        case 'truffle':
+            text = 'Truffle Attack!';
+            break;
+        case 'bearThing':
+            text = 'BearThing Attack!';
+            break;
+        case 'axe':
+            text = 'Axe Attack!';
+            break;
+    }
+    phaseText.textContent = text;
 }
 
 function gameLoop() {
@@ -59,6 +81,18 @@ function gameLoop() {
 }
 
 function update() {
+    // Phase management
+    phaseTimer++;
+    if (phaseTimer >= phaseDuration) {
+        let newPhase;
+        do {
+            newPhase = phases[Math.floor(Math.random() * phases.length)];
+        } while (newPhase === currentPhase); // Avoid same phase consecutively
+        currentPhase = newPhase;
+        phaseTimer = 0;
+        updatePhaseText();
+    }
+
     // Player movement
     if (keys.ArrowLeft || keys.a) player.x -= 5;
     if (keys.ArrowRight || keys.d) player.x += 5;
@@ -70,10 +104,12 @@ function update() {
     player.y = Math.max(300, Math.min(canvas.height - player.height, player.y)); // Box area
 
     // Generate attacks
-    attackTimer++;
-    if (attackTimer >= attackInterval) {
-        generateAttack();
-        attackTimer = 0;
+    if (currentPhase !== 'safe') {
+        attackTimer++;
+        if (attackTimer >= attackInterval) {
+            generateAttack();
+            attackTimer = 0;
+        }
     }
 
     // Update attacks
@@ -120,11 +156,9 @@ function draw() {
 }
 
 function generateAttack() {
-    const types = ['truffle', 'bearThing', 'axe'];
-    const type = types[Math.floor(Math.random() * types.length)];
     let attack;
 
-    switch (type) {
+    switch (currentPhase) {
         case 'truffle':
             attack = new Truffle(boss.x + boss.width / 2, boss.y + boss.height);
             break;
