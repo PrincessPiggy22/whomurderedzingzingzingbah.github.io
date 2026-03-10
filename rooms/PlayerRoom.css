@@ -6,3 +6,9 @@
   margin: 0;
   padding: 0;
 }
+
+.urRoom {
+       width:200px; 
+       height:200px; 
+       background-image: url(../backgrounds/PlayerRoom.png);
+ }
