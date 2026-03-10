@@ -24,6 +24,7 @@ ZingDead = "../sprites/ZingbahDead.png";
 ZingPhil = "../sprites/Philzingzingcollins.png";
 Hum = "../sprites/Humbah.png";
 Jum = "../sprites/Jumbah.png";
+Zum = "../sprites/Zumbah.png";
 
 const character =[];
 const dialouge1 = ["&quot;What happened?&quot;"];
