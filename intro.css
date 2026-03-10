@@ -10,11 +10,14 @@ html, body {
 #dreamText {
   color: #fcf7f7;
   font-size: 5vw;
-  font-family: monospace;
+  font-family: Arial, Helvetica, sans-serif;
   opacity: 1;
   margin: 0;
   padding: 0;
-  animation: fadeText 4s ease-in-out; 
+}
+
+#dreamText.fadeIn {
+  animation: fadeText 4s ease-in-out forwards;
 }
 
 @keyframes fadeText {

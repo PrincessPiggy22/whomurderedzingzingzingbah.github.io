@@ -17,6 +17,7 @@ document.addEventListener("click", function() {
   if(dreamIndex < dreamTxt.length) {
 
     document.getElementById("dreamText").textContent = dreamTxt[dreamIndex];
+    document.getElementById("dreamText").classList.add("fadeIn");
     
   } else if(dreamIndex === dreamTxt.length) {
     
