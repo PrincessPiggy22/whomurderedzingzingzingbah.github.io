@@ -35,11 +35,12 @@ Hum = "../sprites/Humbah.png";
 Jum = "../sprites/Jumbah.png";
 Zum = "../sprites/Zumbah.png";
 You = "../sprites/you.png"; 
+Lorax = "../sprites/Lorax.png";
 
 
 // Begning convo
 const character1 =[You,Bling,You,Bling,You,Bling];
-const dialouge1 = ["&quot;What happened?&quot;","&quot;Zing Zing Zingbah's dead&quot;","&quot;Who are you?&quot;","&quot;Blingbah, I run the casino&quot;","&quot;Gambling?&quot;","&quot;Not for You&quot;"];
+const dialouge1 = ["&quot;What happened?&quot;","&quot;Zing Zing Zingbah's dead&quot;","&quot;Who are you?&quot;","&quot;Blingbah, I run the casino&quot;","&quot;Gambling?&quot;","&quot;No&quot;",];
 
 const character2 =[You];
 const dialouge2 = ["Skibbbb"];
@@ -47,7 +48,5 @@ const dialouge2 = ["Skibbbb"];
 console.log("There is an imposter among us");
 goThruDialouge("roomText", dialouge1, character1);
 
-if (done == 1){
- goThruDialouge("roomText", dialouge2, character2);
-}
+
 
