@@ -352,7 +352,7 @@ function collides(a, b) {
 }
 
 function resetGame() {
-    player.health = 100;
+    player.health = 150;
     boss.health = 200;
     player.x = 400;
     player.y = 500;
@@ -378,7 +378,7 @@ document.addEventListener('keydown', (e) => {
     if (e.key === ' ') {
         e.preventDefault();
         if (currentPhase === 'safe' && attackCooldown === 0) {
-            const damage = Math.floor(Math.random() * 10) + 5; // 5-15 damage
+            const damage = 5; 
             boss.health -= damage;
             updateHealthBars();
             attackCooldown = 15; // 0.5 seconds cooldown at 60fps
