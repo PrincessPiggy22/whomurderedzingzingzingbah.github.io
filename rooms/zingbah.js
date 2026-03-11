@@ -220,15 +220,26 @@ class Beam {
         this.width=350; this.height=250; // half the box
         this.x = side==='left'?50:50+700-350;
         this.y = 300;
-        this.duration=30;
+        this.warningDuration = 30;    // frames before beam fires
+        this.activeDuration = 30;     // frames while damaging
+        this.duration = this.warningDuration + this.activeDuration;
+        this.active = false;
     }
-    update(){this.duration--;}
+    update(){
+        this.duration--;
+        if (this.duration <= this.activeDuration) {
+            this.active = true;
+        }
+    }
     draw(){
-        ctx.fillStyle='cyan'; ctx.fillRect(this.x,this.y,this.width,this.height);
+        // turn red during warning, blue when active
+        ctx.fillStyle = this.active ? 'cyan' : 'red';
+        ctx.fillRect(this.x,this.y,this.width,this.height);
     }
     offScreen(){return this.duration<=0;}
     checkPlayer(p){
-        // reuse rectangular collision helper for beam
+        // only kill when beam is active
+        if (!this.active) return false;
         return collides(this, p);
     }
 }
