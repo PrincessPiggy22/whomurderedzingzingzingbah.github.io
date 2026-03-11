@@ -1,6 +1,8 @@
 # Murder on The Boohbah Express
 ## How to Play
-#### Simply click this link and press start 
+### Click the Link and Press Start 
+### To attack press space and use WASDN and Arrow Keys to move
+### Click the screen to advance dialouge
 [Murder on The Boohbah Express](https://princesspiggy22.github.io/whomurderedzingzingzingbah.github.io/)
 
 ## Loreeeee i guess
