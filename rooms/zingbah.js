@@ -114,16 +114,26 @@ function update() {
         }
     }
 
-    attacks.forEach((attack, index) => {
+    // iterate backwards so splicing is safe and allow early exit on reset
+    for (let i = attacks.length - 1; i >= 0; i--) {
+        const attack = attacks[i];
         attack.update();
-        if (attack.offScreen()) attacks.splice(index, 1);
+
+        if (attack.offScreen()) {
+            attacks.splice(i, 1);
+            continue;
+        }
 
         if (attack.collidesWithPlayer && collides(attack, player)) {
             attack.onHitPlayer && attack.onHitPlayer();
-            attacks.splice(index, 1);
+            attacks.splice(i, 1);
             updateHealthBars();
-            if (player.health <= 0) { alert('You lost! Restarting...'); resetGame(); }
-            return;
+            if (player.health <= 0) {
+                alert('You lost! Restarting...');
+                resetGame();
+                return; // bail out of update entirely
+            }
+            continue;
         }
 
         // beam has own collision check
@@ -132,9 +142,9 @@ function update() {
             updateHealthBars();
             alert('You got swept by the beam!');
             resetGame();
-            return;
+            return; // bail out
         }
-    });
+    }
 
     if (boss.health <= 0) {
         alert('You defeated ZingZingZingbah!');
@@ -184,7 +194,11 @@ class ThrownBall {
         const dx=targetX-x; const dy=300; const dist=Math.sqrt(dx*dx+dy*dy)||1;
         this.dx=(dx/dist)*this.speed; this.dy=(dy/dist)*this.speed;
         this.collidesWithPlayer=true;
-        this.onHitPlayer=()=>{player.health-=10; attacks.push(new Explosion(this.x,this.y));};
+        this.onHitPlayer=()=>{
+            // reduce health but leave at least 1 so only beam can kill instantly
+            player.health = Math.max(1, player.health - 10);
+            attacks.push(new Explosion(this.x,this.y));
+        };
     }
     update(){
         this.x+=this.dx;
