@@ -18,7 +18,7 @@ function goThruDialouge(id, array, characters) {
     if (index == array.length) {
   setTimeout(() => {
     window.location.href = "ZingZingZingbah.html";
-  }, 3000);
+  }, 2000);
 }
   }
 });
