@@ -257,11 +257,11 @@ class RedChip {
 
 class BlueChip {
     constructor(x, y, targetX) {
-        this.x = x - 10;
+        this.x = x - 15; // adjust for larger size
         this.y = y;
-        this.width = 20;
-        this.height = 20;
-        this.speed = 7; // faster
+        this.width = 30; // bigger chip
+        this.height = 30;
+        this.speed = 9; // even faster
         const dx = targetX - x;
         const dy = 300;
         const dist = Math.sqrt(dx * dx + dy * dy);
@@ -291,7 +291,7 @@ class GreenChip {
         this.y = y;
         this.width = 20;
         this.height = 20;
-        this.speed = 6; // a bit faster
+        this.speed = 8; // faster
         const dx = targetX - x;
         const dy = 300;
         const dist = Math.sqrt(dx * dx + dy * dy);
