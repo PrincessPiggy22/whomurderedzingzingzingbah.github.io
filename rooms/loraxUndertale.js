@@ -199,25 +199,35 @@ function generateAttack() {
 
     switch (currentPhase) {
         case 'truffle':
-            attack = new Truffle(boss.x + boss.width / 2, boss.y + boss.height);
+            // Spawn truffles above the box, shooting down
+            for (let i = 0; i < 10; i++) {
+                let x = 50 + i * 70;
+                attacks.push(new Truffle(x, 250, 8));
+            }
+            // Spawn truffles underneath the box, shooting up
+            for (let i = 0; i < 10; i++) {
+                let x = 50 + i * 70;
+                attacks.push(new Truffle(x, 600, -8));
+            }
             break;
         case 'bearThing':
             attack = new BearThing(boss.x + boss.width / 2, boss.y + boss.height);
+            attacks.push(attack);
             break;
         case 'axe':
             attack = new Axe(boss.x + boss.width / 2, boss.y + boss.height, player.x + player.width / 2);
+            attacks.push(attack);
             break;
     }
-    attacks.push(attack);
 }
 
 class Truffle {
-    constructor(x, y) {
+    constructor(x, y, speed) {
         this.x = x - 10;
         this.y = y;
         this.width = 20;
         this.height = 20;
-        this.speed = 3;
+        this.speed = speed;
     }
     update() {
         this.y += this.speed;
@@ -231,7 +241,7 @@ class Truffle {
         }
     }
     offScreen() {
-        return this.y > canvas.height;
+        return this.y > canvas.height || this.y + this.height < 0;
     }
 }
 
