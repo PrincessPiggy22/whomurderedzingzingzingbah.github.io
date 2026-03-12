@@ -1,8 +1,11 @@
-
+      let text = document.getElementById(id);
+    text.style.backgroundColor = "#f1dd00";
+    text.style.color = "rgb(0, 0, 0)";
+    text.style.border = "3px solid #ff4eaf";
 function goThruDialouge(id, array, characters) {
 
   let index = 0;
-  let text = document.getElementById(id);
+
   text.innerHTML = array[0];
   document.addEventListener("click", function() {
   index++;
