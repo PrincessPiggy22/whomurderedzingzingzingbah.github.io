@@ -38,6 +38,9 @@ setTimeout(() => {
 
 let gameStarted = false;
 
+let bossMusic = new Audio('../Boohbah.mp3');
+bossMusic.loop = true;
+
 let player = { x: 400, y: 500, width: 20, height: 20, health: 100 };
 let boss = { x: 350, y: 50, width: 100, height: 100, health: 350, maxHealth: 350 };
 let attacks = [];
@@ -158,6 +161,7 @@ function update() {
     if (boss.health <= 0) {
         alert('You defeated ZingZingZingbah!');
         window.location.href = 'DomeCar4.html';
+        bossMusic.pause();
     }
 }
 
