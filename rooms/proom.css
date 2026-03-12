@@ -49,7 +49,7 @@
 }
 
 body {
-  background-image: url("../backgrounds/DomeCar.png"); /* Specify the image file path */
+  background-image: url("../backgrounds/PlayerRoom.png"); /* Specify the image file path */
   background-repeat: no-repeat;            /* Prevent the image from repeating */
   background-size: cover;                  /* Scale the image to cover the entire container */
   background-position: center;             /* Center the image within the container */
