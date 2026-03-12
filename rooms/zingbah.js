@@ -255,17 +255,50 @@ class Beam {
 
 class TinyBall {
     constructor(x,y,target){
-        this.x=x; this.y=y; this.width=10; this.height=10; this.speed=8; this.target=target;
-        this.collidesWithPlayer=true;
-        this.onHitPlayer=()=>{player.health-=3;};
+        this.x = x;
+        this.y = y;
+        this.width = 10;
+        this.height = 10;
+
+        this.speed = 6; // slower (was 8)
+
+        this.target = target;
+
+        this.life = 0;
+        this.maxLife = 60; // explode after 1 second
+
+        this.collidesWithPlayer = true;
+
+        this.onHitPlayer = () => {
+            player.health -= 3;
+            attacks.push(new Explosion(this.x, this.y));
+        };
     }
+
     update(){
-        const dx=this.target.x-this.x; const dy=this.target.y-this.y;
-        const dist=Math.sqrt(dx*dx+dy*dy)||1;
-        this.x+=(dx/dist)*this.speed; this.y+=(dy/dist)*this.speed;
+        const dx = this.target.x - this.x;
+        const dy = this.target.y - this.y;
+        const dist = Math.sqrt(dx*dx + dy*dy) || 1;
+
+        this.x += (dx/dist) * this.speed;
+        this.y += (dy/dist) * this.speed;
+
+        this.life++;
+
+        if (this.life >= this.maxLife) {
+            attacks.push(new Explosion(this.x, this.y));
+            this.removed = true;
+        }
     }
-    draw(){ctx.fillStyle='orange';ctx.fillRect(this.x,this.y,this.width,this.height);}
-    offScreen(){return this.x<0||this.x>canvas.width||this.y<0||this.y>canvas.height;}
+
+    draw(){
+        ctx.fillStyle = 'orange';
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+
+    offScreen(){
+        return this.removed || this.x<0 || this.x>canvas.width || this.y<0 || this.y>canvas.height;
+    }
 }
 
 class Explosion {constructor(x,y){this.x=x;this.y=y;this.radius=0;}update(){this.radius+=2;}draw(){ctx.fillStyle='orange';ctx.beginPath();ctx.arc(this.x,this.y,this.radius,0,Math.PI*2);ctx.fill();}offScreen(){return this.radius>30;}}
