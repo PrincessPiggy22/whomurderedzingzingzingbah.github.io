@@ -1,3 +1,4 @@
+let done = 0;
 function goThruDialouge(id, array) {
 
   let index = 0;
@@ -9,7 +10,11 @@ function goThruDialouge(id, array) {
   if(index < array.length) {
 
     document.getElementById(id).textContent = array[index];
+    done = 0;
     
+  }
+  if(index == array.length){
+    done = 1;
   }
 });
 };
