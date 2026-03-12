@@ -265,7 +265,7 @@ class TinyBall {
         this.target = target;
 
         this.life = 0;
-        this.maxLife = 30; // explode after 1 second
+        this.maxLife = 55; // explode after 1 second
 
         this.collidesWithPlayer = true;
 
