@@ -6,30 +6,26 @@ function goThruDialouge(id, array, characters) {
   text = array[0];
   document.addEventListener("click", function() {
   index++;
-  if(index == 1){
+  if(index == 1 | index == 3 | index == 5){
     document.getElementById("characterImage").src = characters[index];
-   text.classList.remove("You-Talk");
    document.getElementById("characterImage").style.opacity = "1";
-    text.classList.add("Bling-Talk");
-  } else if(index == 3 ){
-document.getElementById("characterImage").src = characters[index];
-   text.classList.remove("You-Talk");
-   document.getElementById("characterImage").style.opacity = "1";
-    text.classList.add("Bling-Talk");
-  } else if (index == 5){
-document.getElementById("characterImage").src = characters[index];
-   text.classList.remove("You-Talk");
-   document.getElementById("characterImage").style.opacity = "1";
-    text.classList.add("Bling-Talk");
-  } else if(index == 9){
-    text.classList.remove("Bling-Talk", "You-Talk");
+    text.style.backgroundColor = "#0cf100";
+    text.style.color = "rgb(0, 0, 0)";
+    text.style.border = "3px solid #066b1c";
+
+  }  else if(index == 9){
     document.getElementById("characterImage").src = characters[index];
     document.getElementById("characterImage").style.opacity = "1";
-    text.classList.add("Lorax-Talk");
+    text.style.backgroundColor = "#f1dd00";
+    text.style.color = "rgb(0, 0, 0)";
+    text.style.border = "3px solid #ff4eaf";
+ 
   } else {
-    text.classList.remove("Zing-Talk", "Lorax-Talk", "Bling-Talk");
     document.getElementById("characterImage").style.opacity = "0";
-    text.classList.add("You-Talk");
+    text.style.backgroundColor = "898989";
+    text.style.color = "white";
+    text.style.border = "3px solid #575757";
+    
   }
   if(index < array.length) {
     //document.getElementById("characterImage").src = characters[index];
