@@ -39,7 +39,7 @@ setTimeout(() => {
 let gameStarted = false;
 
 let player = { x: 400, y: 500, width: 20, height: 20, health: 100 };
-let boss = { x: 350, y: 50, width: 100, height: 100, health: 200, maxHealth: 200 };
+let boss = { x: 350, y: 50, width: 100, height: 100, health: 350, maxHealth: 350 };
 let attacks = [];
 let keys = {};
 
@@ -229,7 +229,7 @@ class Beam {
         this.width=350; this.height=250; // half the box
         this.x = side==='left'?50:50+700-350;
         this.y = 300;
-        this.warningDuration = 60;    // frames before beam fires (extended warning)
+        this.warningDuration = 55;    // frames before beam fires (extended warning)
         this.activeDuration = 30;     // frames while damaging
         this.duration = this.warningDuration + this.activeDuration;
         this.active = false;
@@ -265,7 +265,7 @@ class TinyBall {
         this.target = target;
 
         this.life = 0;
-        this.maxLife = 55; // explode after 1 second
+        this.maxLife = 75; // explode after 1 second
 
         this.collidesWithPlayer = true;
 
