@@ -1,4 +1,4 @@
-      let text = document.getElementById(id);
+    let text = document.getElementById("roomText");
     text.style.backgroundColor = "#f1dd00";
     text.style.color = "rgb(0, 0, 0)";
     text.style.border = "3px solid #ff4eaf";
