@@ -27,6 +27,12 @@ document.getElementById("start").onclick = function() {
 
 };
 
+document.getElementById("test").onclick = function() {
+  console.log("testing");
+  window.location.href = "rooms/DomeCar3.html";
+
+};
+
 
 // if key not in inventory --> don't open door 
 
