@@ -13,7 +13,7 @@ function goThruDialouge(id, array, characters) {
     document.getElementById("characterImage").src = characters[index];
   }
   if(index < array.length) {
-    document.getElementById("characterImage").src = characters[index];
+    //document.getElementById("characterImage").src = characters[index];
     document.getElementById(id).innerHTML = array[index];
     
   }
