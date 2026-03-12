@@ -1,3 +1,5 @@
+let respawnLockTimer = 0; // frames where player cannot move
+
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
@@ -87,6 +89,11 @@ function gameLoop() {
 
 function update() {
     phaseTimer++;
+
+    if (respawnLockTimer > 0) {
+    respawnLockTimer--;
+    }
+
     const duration = (currentPhase === 'safe') ? safePhaseDuration : attackPhaseDuration;
     const timeLeft = Math.ceil((duration - phaseTimer) / 60);
     phaseTimerDiv.textContent = `Time left: ${timeLeft}s`;
@@ -98,10 +105,13 @@ function update() {
     }
 
     // movement
+    if (respawnLockTimer === 0) {
     if (keys.ArrowLeft || keys.a) player.x -= 5;
     if (keys.ArrowRight || keys.d) player.x += 5;
     if (keys.ArrowUp || keys.w) player.y -= 5;
     if (keys.ArrowDown || keys.s) player.y += 5;
+}
+
     player.x = Math.max(50, Math.min(730, player.x));
     player.y = Math.max(300, Math.min(530, player.y));
 
@@ -262,7 +272,19 @@ class Explosion {constructor(x,y){this.x=x;this.y=y;this.radius=0;}update(){this
 
 function collides(a,b){return a.x<b.x+b.width&&a.x+a.width>b.x&&a.y<b.y+b.height&&a.y+a.height>b.y;}
 
-function resetGame(){player.health=100;boss.health=boss.maxHealth;player.x=400;player.y=500;attacks=[];attackCooldown=30;currentPhase='safe';currentPhaseIndex=0;phaseTimer=0;updateHealthBars();updatePhaseText();}
+function resetGame(){
+    player.health=100;
+    boss.health=boss.maxHealth;
+    player.x=400;
+    player.y=500;
+    respawnLockTimer = 45; // ~0.75 seconds at 60fps
+    attacks=[];
+    attackCooldown=30;
+    currentPhase='safe';
+    currentPhaseIndex=0;
+    phaseTimer=0;
+    updateHealthBars();
+    updatePhaseText();}
 
 document.addEventListener('keydown',e=>{keys[e.key]=true;});
 document.addEventListener('keyup',e=>{keys[e.key]=false;});
