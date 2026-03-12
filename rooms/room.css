@@ -25,7 +25,7 @@ img {
   height: auto;
 }
 
-.colored-box {
+.Room .colored-box {
     /* Set the background color of the box */
     background-color: #ff5733; /* A bright red-orange color */
     
