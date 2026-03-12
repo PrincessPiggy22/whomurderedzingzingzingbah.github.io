@@ -2,11 +2,11 @@
 function goThruDialouge(id, array, characters) {
 
   let index = 0;
-  document.getElementById(id).innerHTML = array[index];
-  
+  document.getElementById(id).innerHTML = array[0];
+
   document.addEventListener("click", function() {
   index++;
-  if(index == 1 | | index == 3 | index == 5){
+  if(index == 1 | index == 3 | index == 5){
     document.getElementById("characterImage").src = characters[index];
   }
   if(index == 9){
@@ -14,6 +14,7 @@ function goThruDialouge(id, array, characters) {
   }
   if(index < array.length) {
     document.getElementById("characterImage").src = characters[index];
+    document.getElementById(id).innerHTML = array[index];
     
   }
 
