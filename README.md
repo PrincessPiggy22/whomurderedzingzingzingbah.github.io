@@ -1,6 +1,6 @@
 # Who Murdered ZingZingZingbah?
 ## How to Play
-#### Click the Link and Press Start 
+#### Click the Link below and Press Start 
 #### Click the screen to advance dialouge
 #### battles should take 3 seconds to load if it doesn't just click the screen and wait another 3 seconds
 #### To attack press space and use Arrow Keys to move
